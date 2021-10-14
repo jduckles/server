@@ -6,18 +6,6 @@ export DEBIAN_FRONTEND=noninteractive
 
 export TX=Pacific/Auckland
 
-apt update
-apt install -y wget curl python3 python3-pip
-
-# mirrors.txt automatically returns mirrors in your GeoIP country
-mirror=$(curl "http://mirrors.ubuntu.com/mirrors.txt" | sort -R | head -1)
-pip3 install apt-mirror-updater
-apt-mirror-updater -c "${mirror}"
-apt-get update
-
-# existing packages
-apt-get install -y apt-transport-https software-properties-common 
-
 readonly normal=$(printf '\033[0m')
 readonly bold=$(printf '\033[1m')
 readonly faint=$(printf '\033[2m')
@@ -59,6 +47,18 @@ function die() {
 function pre_run() { 
   
   DEBIAN_FRONTEND=noninteractive apt install -y tzdata 
+  
+  apt update
+apt install -y wget curl python3 python3-pip
+
+# mirrors.txt automatically returns mirrors in your GeoIP country
+mirror=$(curl "http://mirrors.ubuntu.com/mirrors.txt" | sort -R | head -1)
+pip3 install apt-mirror-updater
+apt-mirror-updater -c "${mirror}"
+apt-get update
+
+# existing packages
+apt-get install -y apt-transport-https software-properties-common 
 
 }
 
