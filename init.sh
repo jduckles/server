@@ -46,10 +46,10 @@ function die() {
 
 function pre_run() { 
   
-  DEBIAN_FRONTEND=noninteractive apt install -y tzdata 
+  DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata 
   
-  apt update
-apt install -y wget curl python3 python3-pip
+  apt-get update
+apt-get install -y wget curl python3 python3-pip
 
 # mirrors.txt automatically returns mirrors in your GeoIP country
 mirror=$(curl "http://mirrors.ubuntu.com/mirrors.txt" | sort -R | head -1)
@@ -89,36 +89,35 @@ function r() {
   section "R"
   export TZ="Pacific/Auckland"
   export DEBIAN_FRONTEND=noninteractive
-  apt update -qq
-  pre_run
+  apt-get update -qq
   # install two helper packages we need
-  apt install -y --no-install-recommends software-properties-common dirmngr wget
+  apt-get install -y --no-install-recommends software-properties-common dirmngr wget
   # add the signing key (by Michael Rutter) for these repos
   # To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc 
   # Fingerprint: 298A3A825C0D65DFD57CBB651716619E084DAB9
   wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
   # add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
   add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
-  apt install -y --no-install-recommends r-base
+  apt-get install -y --no-install-recommends r-base
 
   R --version 
 }
 
 function r_packages() { 
   section "R PACKAGES"
-  apt install -y --no-install-recommends software-properties-common dirmngr wget
+  apt-get install -y --no-install-recommends software-properties-common dirmngr wget
   add-apt-repository -y ppa:c2d4u.team/c2d4u4.0+
-  apt install -y r-cran-tidyverse r-cran-shiny
+  apt-get install -y r-cran-tidyverse r-cran-shiny
 }
 
 function rstudio_server() { 
   section "RSTUDIO SERVER"
   RSTUDIO_VERSION=2021.09.0-351
-  apt update -qq 
-  apt install gdebi-core wget
+  apt-get update -qq 
+  apt-get install gdebi-core wget
   wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-${RSTUDIO_VERSION}-amd64.deb
   packages=$(gdebi -q --apt-line rstudio-server-${RSTUDIO_VERSION}-amd64.deb)
-  apt install -y ${packages}
+  apt-get install -y ${packages}
   dpkg -i rstudio-server-${RSTUDIO_VERSION}-amd64.deb 
 } 
 
@@ -128,7 +127,7 @@ function shiny_server() {
   apt-get install -y gdebi-core
   wget https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-${SHINY_VERSION}-amd64.deb
   packages=$(gdebi -q --apt-line shiny-server-${SHINY_VERSION}-amd64.deb)
-  apt install -y ${packages}
+  apt-get install -y ${packages}
   dpkg -i shiny-server-${SHINY_VERSION}-amd64.deb
 }
 
