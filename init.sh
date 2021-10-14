@@ -44,7 +44,7 @@ function section()
 }
 
 function step() {
-  $* 
+  $* >> initlog/install.log
   local return_code="$?"
   return $return_code
 }
