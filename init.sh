@@ -58,7 +58,7 @@ function die() {
 function pre_run() { 
   
   DEBIAN_FRONTEND=noninteractive apt install -y tzdata 
-  mkdir initlog
+  mkdir -p initlog
 
 }
 
