@@ -40,7 +40,7 @@ function error()
 function section()
 {
   local msg=${1}
-  echo "[${bold}${green}STARTING{normal}] ${msg}" >&2
+  echo "[${bold}${green}STARTING${normal}] ${msg}" >&2
 }
 
 function step() {
