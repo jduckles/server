@@ -199,7 +199,7 @@ step geospatial_packages || die "Geospatial packages failed"
 step python_packages || die "Python installation failed"
 step node_packages || die "Node installation failed" 
 step docker_install || die "Docker installation failed" 
-step borg_backup || die "Borg Backup install failed"
+step zerotier || die "Zerotier install failed"
 step install_zsh || die "ZSH install failed"
 # Create User Account and passwordless sudo
 
