@@ -45,20 +45,15 @@ function die() {
 
 
 function pre_run() { 
-  
-  DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata 
-  
-  apt-get update
-apt-get install -y wget curl python3 python3-pip
-
-# mirrors.txt automatically returns mirrors in your GeoIP country
-mirror=$(curl "http://mirrors.ubuntu.com/mirrors.txt" | sort -R | head -1)
-pip3 install apt-mirror-updater
-apt-mirror-updater -c "${mirror}"
-apt-get update
-
-# existing packages
-apt-get install -y apt-transport-https software-properties-common 
+  section "PREREQUISITES"
+  DEBIAN_FRONTEND=noninteractive apt-get install -y tzdata # Make sure tzdata doesn't give us issues
+  apt-get update -q -q
+  apt-get install -y wget curl python3 python3-pip apt-transport-https software-properties-common 
+  # mirrors.txt automatically returns mirrors in your GeoIP country
+  mirror=$(curl "http://mirrors.ubuntu.com/mirrors.txt" | sort -R | head -1)
+  pip3 install apt-mirror-updater
+  apt-mirror-updater -c "${mirror}"
+  apt-get update -q -q
 
 }
 
@@ -114,7 +109,7 @@ function rstudio_server() {
   section "RSTUDIO SERVER"
   RSTUDIO_VERSION=2021.09.0-351
   apt-get update -qq 
-  apt-get install gdebi-core wget
+  apt-get install -y gdebi-core wget
   wget https://download2.rstudio.org/server/bionic/amd64/rstudio-server-${RSTUDIO_VERSION}-amd64.deb
   packages=$(gdebi -q --apt-line rstudio-server-${RSTUDIO_VERSION}-amd64.deb)
   apt-get install -y ${packages}
