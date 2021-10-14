@@ -44,7 +44,8 @@ function section()
 }
 
 function step() {
-  $* >> initlog/install.log
+  mkdir -p /tmp/initlog
+  $* >> /tmp/initlog/install.log
   local return_code="$?"
   return $return_code
 }
@@ -58,7 +59,6 @@ function die() {
 function pre_run() { 
   
   DEBIAN_FRONTEND=noninteractive apt install -y tzdata 
-  mkdir -p initlog
 
 }
 
