@@ -147,9 +147,9 @@ function geospatial_packages() {
   pip3 install wheel rasterstats
 
   ## R Install some basic packages
-  Rscript -e "install.packages(c('rgdal'), repos='https://cran.rstudio.com', type='source'))"
-  Rscript -e "install.packages(c('maps','ggmap','maptools', repos='https://cran.rstudio.com'))"
-  Rscript -e "install.packages(c('RColorBrewer', 'sf', 'plyr','reshape2', 'raster', repos='https://cran.rstudio.com'))"
+  #Rscript -e "install.packages(c('rgdal'), repos='https://cran.rstudio.com', type='source'))"
+  #Rscript -e "install.packages(c('maps','ggmap','maptools', repos='https://cran.rstudio.com'))"
+  #Rscript -e "install.packages(c('RColorBrewer', 'sf', 'plyr','reshape2', 'raster', repos='https://cran.rstudio.com'))"
 }
 
 function python_packages() {
