@@ -101,7 +101,7 @@ function r() {
 
 function postgres() { 
   apt-get update
-  apt-get install -y postgresql postgresql-contrib
+  apt-get install -y postgresql postgresql-contrib sudo 
 } 
 
 function r_packages() { 
