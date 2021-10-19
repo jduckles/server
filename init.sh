@@ -98,6 +98,12 @@ function r() {
   R --version 
 }
 
+
+function postgres() { 
+  apt-get update
+  apt-get install -y postgresql postgresql-contrib
+} 
+
 function r_packages() { 
   section "R PACKAGES"
   apt-get install -y --no-install-recommends software-properties-common dirmngr wget
@@ -201,6 +207,7 @@ step node_packages || die "Node installation failed"
 step docker_install || die "Docker installation failed" 
 step zerotier || die "Zerotier install failed"
 step install_zsh || die "ZSH install failed"
+step postgres || die "Postgres install failed"
 # Create User Account and passwordless sudo
 
 # Lock down SSHD if installed (ie not in a docker container) 
