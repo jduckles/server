@@ -1,0 +1,27 @@
+---
+- name: Install GIS packages
+  hosts: all 
+  tasks:
+    - name: Install software
+      apt: 
+        update_cache: yes
+        pkg:
+          - gdal-bin
+          - libgdal-dev
+          - grass
+          - spatialite-bin 
+          - libgdal-dev 
+          - virtualenv 
+          - rasterio 
+          - fiona 
+          - grass 
+          - libproj-dev 
+          - libudunits2-dev
+          - python3-rasterio
+          - python3-gdal
+          - python3-csvkit
+          - rasterio
+          - qgis
+          - qgis-plugin-grass
+          - qgis-providers
+          - postgis

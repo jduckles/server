@@ -1,0 +1,31 @@
+---
+- name: Install CRAN version of R
+  hosts: 
+    - jane
+
+  tasks:
+    - name: Cran R Packages Key
+      apt_key:
+        url: https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc
+        state: present
+
+    - name: R Stats Repo
+      apt_repository:
+        repo: deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/
+        state: present
+
+    - name: Install software
+      apt: 
+        update_cache: yes
+        pkg:
+          - software-properties-common 
+          - dirmngr 
+          - wget
+
+    - name: Install R r-base
+      apt: 
+        install_recommends: no
+        pkg:
+          - r-base
+          - r-base-dev
+

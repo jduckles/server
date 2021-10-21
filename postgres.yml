@@ -1,0 +1,12 @@
+---
+- name: Install PostgreSQL
+  hosts:
+    - jane
+  tasks:
+    - name: Install software
+      apt: 
+        update_cache: yes
+        pkg:
+          - postgresql 
+          - postgresql-contrib 
+          

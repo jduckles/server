@@ -1,0 +1,20 @@
+---
+- name: Install CRAN version of R
+  hosts: localhost
+  remote_user: root
+
+  tasks:
+
+    - name: R Stats CRAN Packages Repo
+      apt_repository:
+        repo: ppa:c2d4u.team/c2d4u4.0+
+        state: present
+
+    - name: Install software
+      apt: 
+        update_cache: yes
+        install_recommends: no
+        pkg:
+          - r-cran-tidyverse 
+          - r-cran-shiny
+

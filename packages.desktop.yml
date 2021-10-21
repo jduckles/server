@@ -1,0 +1,15 @@
+---
+- name: Install Nice to Have packages on Desktop Systems
+  hosts: localhost
+  remote_user: root
+  tasks:
+    - name: Install software
+      apt: 
+        update_cache: yes
+        pkg:
+          - libreoffice
+          - openscad 
+          - blender 
+          - gparted 
+          - krita 
+          - firefox

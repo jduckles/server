@@ -1,0 +1,24 @@
+---
+- name: Install Nice to Have packages on Commandline Systems
+  hosts: all 
+  remote_user: root
+  tasks:
+    - name: Install software
+      apt: 
+        update_cache: yes
+        pkg:
+          - jq 
+          - mosh 
+          - tmux 
+          - screen 
+          - fail2ban 
+          - zsh 
+          - iperf3 
+          - htop 
+          - pandoc 
+          - fonts-inconsolata 
+          - fonts-open-sans 
+          - fonts-roboto 
+          - imagemagick 
+          - iotop 
+          - vim
