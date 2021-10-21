@@ -1,0 +1,5 @@
+---
+- name: Create a data container
+    community.docker.docker_container:
+      name: mydata
+      image: ubuntu:20.04

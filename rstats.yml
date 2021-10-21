@@ -1,7 +1,6 @@
 ---
 - name: Install CRAN version of R
-  hosts: 
-    - jane
+  hosts: all
 
   tasks:
     - name: Cran R Packages Key

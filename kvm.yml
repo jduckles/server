@@ -1,7 +1,7 @@
 ---
 - name: Update apt
   apt: update_cache=yes
-  host: jane
+  hosts: all
 
 - name: Install dependencies
 

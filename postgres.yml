@@ -1,7 +1,6 @@
 ---
 - name: Install PostgreSQL
-  hosts:
-    - jane
+  hosts: all
   tasks:
     - name: Install software
       apt: 

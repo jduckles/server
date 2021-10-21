@@ -1,7 +1,6 @@
 ---
-- name: Install Nice to Have packages on Commandline Systems
-  hosts: all 
-  remote_user: root
+- name: Install nice to have packages
+  hosts: all
   tasks:
     - name: Install software
       apt: 
@@ -22,3 +21,7 @@
           - imagemagick 
           - iotop 
           - vim
+          - speedtest-cli
+          - wget 
+          - curl 
+          - vim 

@@ -1,7 +1,6 @@
 ---
 - name: Install CRAN version of R
-  hosts: localhost
-  remote_user: root
+  hosts: all
 
   tasks:
 

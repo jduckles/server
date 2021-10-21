@@ -1,7 +1,6 @@
 ---
-- name: Install Nice to Have packages on Desktop Systems
-  hosts: localhost
-  remote_user: root
+- name: Install nice to have desktop packages
+  hosts: all
   tasks:
     - name: Install software
       apt: 

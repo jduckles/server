@@ -1,6 +1,6 @@
 ---
 - name: Install GIS packages
-  hosts: all 
+  hosts: all
   tasks:
     - name: Install software
       apt: 
