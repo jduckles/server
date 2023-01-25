@@ -1,7 +1,21 @@
-apt-get install -y python3-pip git ffmpeg python3-virtualenv
-virtualenv .pyenv
-. ./.pyenv/bin/activate
-pip install torch torchvision torchaudio
-pip install jupyter
-pip install git+https://github.com/openai/whisper.git 
-pip install pyannote.audio
+- name: Install GIS packages
+  hosts: all 
+  tasks:
+    - name: Install software
+      apt: 
+        update_cache: yes
+        pkg:
+          - python3-pip
+          - ffmpeg
+          - git 
+          - python3-virtualenv
+- name: Install Python Packages
+  ansible.builtin.pip:
+    name:
+      - torch
+      - torchvision
+      - torchaudio
+      - jupyter
+      - git+https://github.com/openai/whisper.git 
+      - pyannote.audio
+    virtualenv: /root/.pyenv
