@@ -1,0 +1,7 @@
+apt-get install -y python3-pip git ffmpeg python3-virtualenv
+virtualenv .pyenv
+. ./.pyenv/bin/activate
+pip install torch torchvision torchaudio
+pip install jupyter
+pip install git+https://github.com/openai/whisper.git 
+pip install pyannote.audio
