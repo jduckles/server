@@ -59,6 +59,7 @@ function pre_run() {
 
 # General nice to have packages
 function nice_packages() {
+  # ✅ - copied to ansible playbook
   section "NICE TO HAVE PACKAGES"
   packages="jq mosh tmux screen fail2ban zsh iperf3 htop pandoc fonts-inconsolata fonts-open-sans fonts-roboto imagemagick iotop vim"
   apt-get install -y ${packages}
@@ -66,6 +67,7 @@ function nice_packages() {
 
 # Desktop System
 function desktop_packages() {
+  # ✅ - copied to ansible playbook
   section "DESKTOP PACKAGES"
   packages="libreoffice openscad blender gparted krita firefox"
   apt-get install -y ${packages}
@@ -81,6 +83,7 @@ function node_packages() {
 
 
 function r() {
+# ✅ - copied to ansible playbook
   section "R"
   export TZ="Pacific/Auckland"
   export DEBIAN_FRONTEND=noninteractive
@@ -100,11 +103,13 @@ function r() {
 
 
 function postgres() { 
+# ✅ - copied to ansible playbook
   apt-get update
   apt-get install -y postgresql postgresql-contrib sudo 
 } 
 
 function r_packages() { 
+# ✅ - copied to ansible playbook
   section "R PACKAGES"
   apt-get install -y --no-install-recommends software-properties-common dirmngr wget
   add-apt-repository -y ppa:c2d4u.team/c2d4u4.0+
@@ -142,6 +147,7 @@ function zerotier() {
 }
 
 function geospatial_packages() {
+# ✅ - copied to ansible playbook
   section "GEOSPATIAL PACKAGES"
   # Install GEOSPATIAL Packages
   ## List of Ubuntu packages to install
@@ -159,6 +165,7 @@ function geospatial_packages() {
 }
 
 function python_packages() {
+# ✅ - copied to ansible playbook
   section "PYTHON PACKAGES"
   ## Install Python development packages
   packages="virtualenvwrapper python3 python3-setuptools"
@@ -187,6 +194,7 @@ function docker_install() {
 
 
 function install_zsh() { 
+
   section "ZSH"
 
   apt-get install -y zsh 

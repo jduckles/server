@@ -25,3 +25,9 @@
           - wget 
           - curl 
           - vim 
+          - wget 
+          - curl 
+          - python3 
+          - python3-pip 
+          - apt-transport-https 
+          - software-properties-common
