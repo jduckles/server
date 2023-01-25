@@ -1,4 +1,4 @@
-- name: Install GIS packages
+- name: Install transcription packages
   hosts: all 
   tasks:
     - name: Install software
